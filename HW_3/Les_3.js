@@ -26,3 +26,13 @@ function countBasketPrice(basket) {
     }
     return BasketPrice;
 }
+
+//task_3
+for (var i = 0; i <= 9; console.log(i), i++){}
+
+//task_4
+let a = 'x';
+for (var j = 1; j <= 20; j++) {
+  console.log(a);
+  a += 'x';
+}
