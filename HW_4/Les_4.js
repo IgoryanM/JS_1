@@ -24,26 +24,28 @@ console.log(numberToObject(num));
 
 
 // task_2
-let all_goods = {
-  // товары и цены
-  iphone: 1000,
-  imac: 1500,
-  ipad: 1200,
-};
+const cart = {
+  // товар, цена 
+  goodsPrice: {
+    iphone: 1000,
+    imac: 1500,
+    ipad: 1200
+  }, 
 
-let my_basket = {
-  // название товара и количество в корзине
-  ipad: 3,
-  iphone: 1,
-  imac: 1,
-};
+  // товара, количество
+  goodsQuantity: {
+    ipad: 3,
+    iphone: 1,
+    imac: 1,v
+  },
 
-function countBasketPrice(basket, goods) {
-  let BasketPrice = 0;
-  for (let key in basket) {
-    BasketPrice += basket[key] * goods[key];
+  countBasketPrice: function() {
+    let BasketPrice = 0;
+    for (let key in this.goodsQuantity) {
+      BasketPrice += this.goodsQuantity[key] * this.goodsPrice[key];
+    }
+    return BasketPrice;
   }
-  return BasketPrice;
-}
+};
 
-console.log(countBasketPrice(my_basket, all_goods));
+console.log(cart.countBasketPrice());
