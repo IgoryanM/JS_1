@@ -25,25 +25,30 @@ console.log(numberToObject(num));
 
 // task_2
 const cart = {
-  // товар, цена 
-  goodsPrice: {
-    iphone: 1000,
-    imac: 1500,
-    ipad: 1200
-  }, 
-
-  // товара, количество
-  goodsQuantity: {
-    ipad: 3,
-    iphone: 1,
-    imac: 1,v
-  },
+  // товар, цена, количество
+  goods: [
+    {
+      title: 'iphone',
+      price: 1000,
+      quantity: 1
+    },
+    {
+      title: 'imac',
+      price: 1500,
+      quantity: 1
+    },
+    {
+      title: 'ipad',
+      price: 1200,
+      quantity: 3
+    }
+  ],
 
   countBasketPrice: function() {
     let BasketPrice = 0;
-    for (let key in this.goodsQuantity) {
-      BasketPrice += this.goodsQuantity[key] * this.goodsPrice[key];
-    }
+    this.goods.forEach(function(item) {
+      BasketPrice += item.price * item.quantity;
+    });
     return BasketPrice;
   }
 };
